@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
 
-export default class Footer extends Component {
-    render() {
+export default class Footer extends Component
+{
+    render()
+    {
         return (
-            <div>
-                <h2> footer</h2>
+        <div className="fixed bottom-0">
+                <div>© Copyright Jeremy Taubman & Trevor Smith-Holbourn 2020</div>
             </div>
         )
     }
