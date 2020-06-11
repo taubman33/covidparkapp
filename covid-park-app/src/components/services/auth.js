@@ -44,7 +44,6 @@ export const handleLogin = async ({ email, password }, callback) =>
     {
         console.log(error)
     }
-
 }
 
 export const handleSignup = async ({ email, password }, callback) =>
@@ -73,7 +72,6 @@ export const handleSignup = async ({ email, password }, callback) =>
     {
         console.log(error)
     }
-
 }
 
 export const isLoggedIn = () =>
