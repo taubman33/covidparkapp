@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { getZone } from './services/apiCalls'
-
+import Post from './Post'
 
 export default class ZoneDetail extends Component {
 
@@ -58,7 +58,11 @@ export default class ZoneDetail extends Component {
                 <img src={zone && zone.picture_url}/>
                 </div>
 
-         
+                <div className="flex flex-wrap">
+        {zone && zone.posts.map ((post, index) =>
+             (<Post post = {post} key={index}/>)
+             )}
+             </div>
 
 
 
