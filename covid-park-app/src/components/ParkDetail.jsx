@@ -1,30 +1,43 @@
 import React, { Component } from 'react'
+import { getPark } from './services/apiCalls'
+
 
 export default class ParkDetail extends Component {
+    state = {
+        park: null 
+    }
+
+    componentDidMount()
+    {
+        this.getPark()
+    }
+
+    getPark = async () =>
+    {
+        console.log(this.props.match.params.id)
+        let response = await  getPark(this.props.match.params.id)
+        this.setState({
+            park: response.data
+        })
+        console.log(response)
+    }
+
     render() {
+        const {park} = this.state
         return (
             <div>
-                <h2> Park Detail</h2>
+        
 
-                <h1>Park Name</h1>
-                {/* <h1>{this.park.name}</h1> */}
+            <h1>{park && park.name}</h1>
 
-                <h2> Boro </h2>
-                {/* <h2>{this.park.boro}</h2> */}
+            <h2>{park && park.boro}</h2>
+            <h2>{park && park.address}</h2>
+            <h2>{park && park.link}</h2>
 
-                <h3> Address</h3>
-                {/* <h3>{this.park.address}</h3> */}
+            <div className="w-48">
+            <img src={park && park.picture_url}/>
+            </div>
 
-                <h3> Link </h3>
-                {/* <h3> {this.park.link}</h3> */}
-                
-                <h3>Rating</h3>
-                {/* <h3> {this.park.rating}</h3> */}
-
-
-
-                <h3>Image</h3>
-                {/* <img src={this.park.image}/> */}
 
             </div>
         )

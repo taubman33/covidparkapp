@@ -17,7 +17,7 @@ export default class Main extends Component
                 <Route exact path='/' component={() => <ParkList />} />
                 <Route exact path='/user' component={() => <User />} />
                 <Route exact path='/user/:id/edit' component={() => <EditUser />} />
-                <Route exact path='/parks/:id' component={() => <ParkDetail />} />
+                <Route exact path='/parks/:id' render={(props) => <ParkDetail {...props} />} />
                 <Route exact path='/login' component={() => <Login />} />
                 <Route exact path='/register' component={() => <Register />} />
             </div>

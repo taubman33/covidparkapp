@@ -21,6 +21,10 @@ export default class User extends Component {
                 <h3> Location:</h3>
                 {/* <h3>{this.props.user && this.props.user[0].location}</h3> */}
 
+                
+                <button className="bg-green-200 border-gray-400 rounded-sm p-1 m-1"><h4>Edit Profile</h4></button>
+
+
                
             </div>
         )

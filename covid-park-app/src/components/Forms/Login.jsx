@@ -23,7 +23,7 @@ const Login = (props) => {
         // value={props.formData.password} onChange={props.handleChange}
          />
         <br/>
-        <button><h4>Login</h4></button>
+        <button className="bg-green-200 border-gray-400 rounded-sm p-1 m-1"><h4>Login</h4></button>
         
       </form>
     </div>
