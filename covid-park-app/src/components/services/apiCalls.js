@@ -26,6 +26,13 @@ export const getPark = async (parkId) =>
     return response
 }
 
+export const getZone = async (zoneId) =>
+{
+    let response = await tryCatchAPICall("GET", `/zones/${zoneId}`)
+    return response
+}
+
+
 export const getUser = async (userId) =>
 {
     let response = await tryCatchAPICall("GET", `/users/${userId}`)

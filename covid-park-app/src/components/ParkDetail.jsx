@@ -37,11 +37,17 @@ export default class ParkDetail extends Component {
             <div className="w-48">
             <img src={park && park.picture_url}/>
             </div>
+        
 
+        <div className="flex flex-wrap">
         {park && park.zones.map ((zone, index) =>
              (<ZoneCard zone = {zone} key={index}/>)
              )}
+             </div>
          
+
+
+
             </div>
         )
     }

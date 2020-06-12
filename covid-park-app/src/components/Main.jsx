@@ -7,6 +7,7 @@ import ParkList from './ParkList'
 import ParkDetail from './ParkDetail'
 import Login from './LoginPage'
 import Register from './RegisterPage'
+import ZoneDetail from './ZoneDetail'
 
 export default class Main extends Component
 {
@@ -20,6 +21,7 @@ export default class Main extends Component
                 <Route exact path='/parks/:id' render={(props) => <ParkDetail {...props} />} />
                 <Route exact path='/login' component={() => <Login />} />
                 <Route exact path='/register' component={() => <Register />} />
+                <Route exact path='/zones/:id' render={(props) => <ZoneDetail {...props} />} />
             </div>
         )
     }

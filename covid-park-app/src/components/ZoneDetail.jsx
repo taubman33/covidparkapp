@@ -1,7 +1,28 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import { getZone } from './services/apiCalls'
 
-export default class ZoneCard extends Component {
+
+export default class ZoneDetail extends Component {
+
+    state = {
+        zone: null 
+    }
+
+    componentDidMount()
+    {
+        this.getZone()
+    }
+
+    getZone= async () =>
+    {
+        console.log(this.props.match.params.id)
+        let response = await  getZone(this.props.match.params.id)
+        this.setState({
+            zone: response.data
+        })
+        console.log(response)
+    }
+
     zoneRating = (rating) =>
     {
         if (rating === -1)
@@ -24,22 +45,24 @@ export default class ZoneCard extends Component {
 
 
     render() {
-
-        const {zone} = this.props 
-
+        const {zone} = this.state
         return (
-            <Link to={`/zones/${zone.id}`}>
-            <div className= "h-64 w-64 border border-gray-300 m-4">
-                <h1> {zone && zone.name}</h1>
+            <div>
+        
+
+             <h1> {zone && zone.name}</h1>
                 <h2> {zone && zone.location}</h2>
                 <h2> Average Rating: {zone && this.zoneRating(zone.average_rating)}</h2>
                 
                 <div className="w-40">
                 <img src={zone && zone.picture_url}/>
                 </div>
-            </div>
-            </Link>
-        )
 
+         
+
+
+
+            </div>
+        )
     }
 }
