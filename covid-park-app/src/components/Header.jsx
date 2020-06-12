@@ -21,8 +21,10 @@ export default function Header()
                 <>
                     <Link to="/login" className="bg-gray-200 border-gray-400 rounded-sm p-1 m-1">Login</Link>
                     <Link to="/register" className="bg-gray-200 border-gray-400 rounded-sm p-1 m-1">Register</Link>
+                    <Link to="/user" className="bg-gray-200 border-gray-400 rounded-sm p-1 m-1">User</Link>
+                
                 </>)
-        }
+        }       
     }
 
     return (
