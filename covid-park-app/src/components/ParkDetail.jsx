@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { getPark } from './services/apiCalls'
-
+import ZoneCard from './ZoneCard'
 
 export default class ParkDetail extends Component {
     state = {
@@ -38,7 +38,10 @@ export default class ParkDetail extends Component {
             <img src={park && park.picture_url}/>
             </div>
 
-
+        {park && park.zones.map ((zone, index) =>
+             (<ZoneCard zone = {zone} key={index}/>)
+             )}
+         
             </div>
         )
     }
