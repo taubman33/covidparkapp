@@ -7,7 +7,7 @@ export default class RegisterPage extends Component {
         return (
             <div>
                <h2> Register Page</h2> 
-               <Register/>
+               {/* <Register/> */}
             </div>
         )
     }
