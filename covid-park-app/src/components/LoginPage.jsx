@@ -37,7 +37,7 @@ export default class LoginPage extends Component
             return (
                 <div>
                     <h2> Login </h2>
-                    <Login handleLogin={this.tryLogin} handleChange={this.handleChange} email={this.state.email} password={this.state.password} />
+                    <Login handleLogin={this.tryLogin} handleChange={this.handleChange} formData={this.state} />
                 </div>
             )
         }
