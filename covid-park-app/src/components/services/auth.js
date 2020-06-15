@@ -1,8 +1,9 @@
 import axios from 'axios'
 import apiUrl from './apiConfig'
+import apiVersion from './apiVersion'
 
 export const api = axios.create({
-    baseURL: apiUrl
+    baseURL: apiUrl + apiVersion
 })
 
 export const isBrowser = () => typeof window !== "undefined"
@@ -23,7 +24,7 @@ export const handleLogin = async ({ email, password }, callback) =>
 {
     try
     {
-        let response = await axios.post(`${apiUrl}/auth`, {
+        let response = await axios.post(`${apiUrl}${apiVersion}/auth`, {
             email: email,
             password: password
         })
@@ -46,14 +47,17 @@ export const handleLogin = async ({ email, password }, callback) =>
     }
 }
 
-export const handleSignup = async ({ email, password }, callback) =>
+export const handleSignup = async ({ email, password, name, location, picture_url }, callback) =>
 {
     try
     {
         // The registration route is not name spaced inside /api/v1 and so it POSTS to /users
-        let response = await axios.post(`/users/`, {
+        let response = await axios.post(`${apiUrl}/users`, {
             email: email,
-            password: password
+            password: password,
+            name: name,
+            location: location,
+            picture_url: picture_url
         })
 
         if (response.status === 200)
