@@ -14,7 +14,7 @@ export default class Main extends Component
     render()
     {
         return (
-            <div className=" w-5/6">
+            <div className="">
                 <Route exact path='/' render={(props) => <ParkList {...props} />} />
                 <Route exact path='/user' render={(props) => <User {...props} />} />
                 <Route exact path='/user/:id/edit' render={(props) => <EditUser {...props} />} />
@@ -23,7 +23,7 @@ export default class Main extends Component
                 <Route exact path='/register' render={(props) => <Register {...props} />} />
                 <Route exact path='/zones/:id' render={(props) => <ZoneDetail {...props} />} />
 
-{/* 
+                {/* 
                 <Route exact path='/createPost' render={(props) => <CreatePost {...props} /> }/>
       
                 <Route exact path='/editPost/:id' render={(props)=> <EditPedal {...props}/> }/> 
