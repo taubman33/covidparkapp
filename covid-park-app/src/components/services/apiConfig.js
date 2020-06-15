@@ -1,7 +1,7 @@
 let apiUrl
 const apiUrls = {
-    production: 'https://TBA.com/api/v1',
-    development: 'http://localhost:3000/api/v1'
+    production: 'https://TBA.com/',
+    development: 'http://localhost:3000/'
 }
 
 if (window.location.hostname === 'localhost')
