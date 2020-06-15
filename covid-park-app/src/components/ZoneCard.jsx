@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
-export default class ZoneCard extends Component {
+export default class ZoneCard extends Component
+{
     zoneRating = (rating) =>
     {
         if (rating === -1)
@@ -23,21 +24,19 @@ export default class ZoneCard extends Component {
     }
 
 
-    render() {
+    render()
+    {
 
-        const {zone} = this.props 
+        const { zone } = this.props
 
         return (
             <Link to={`/zones/${zone.id}`}>
-            <div className= "h-64 w-64 border border-gray-300 m-4">
-                <h1> {zone && zone.name}</h1>
-                <h2> {zone && zone.location}</h2>
-                <h2> Average Rating: {zone && this.zoneRating(zone.average_rating)}</h2>
-                
-                <div className="w-40">
-                <img src={zone && zone.picture_url}/>
+                <div className="w-64 border border-gray-300 mt-2 p-2 shadow">
+                    <div className="text h-12 font-semibold"> {zone && zone.name}</div>
+                    <div className="text-sm h-16"> {zone && zone.location}</div>
+                    <div className="text-xs"> Average Rating: {zone && this.zoneRating(zone.average_rating)}</div>
+                    <img className="w-full h-24 overflow-hidden object-cover object-center" src={zone && zone.picture_url} />
                 </div>
-            </div>
             </Link>
         )
 

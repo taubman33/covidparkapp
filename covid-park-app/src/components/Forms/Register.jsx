@@ -8,7 +8,7 @@ const Register = (props) =>
     <div>
       <hr />
       <h2>Create a new account!</h2>
-      <div className="flex">
+      <div className="flex flex-col-reverse sm:flex-row">
         <form
           className="mt-6"
           onSubmit={(e) =>
@@ -39,12 +39,11 @@ const Register = (props) =>
 
           </div>
           <button className="bg-green-200 border-gray-400 rounded-sm p-1 m-1">Register</button>
-
         </form>
         <div className="flex flex-col text-center ml-5">
           <p>User Image </p>
           <div>
-            <img className="h-48" src={props.formData.picture_url} />
+            <img className="h-48" src={props.formData.picture_url} alt="Avatar" />
           </div>
           <button className="bg-green-200 border-gray-400 rounded-sm p-1 m-1" onClick={props.randomizeAvatar} type >Randomize Avatar</button>
           <p className="text-xs">Powered by <a className="underline" href="https://github.com/fangpenlin/avataaars-generator">Avataaars</a></p>
