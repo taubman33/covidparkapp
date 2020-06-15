@@ -15,12 +15,12 @@ export default class Main extends Component
     {
         return (
             <div className=" w-5/6">
-                <Route exact path='/' component={() => <ParkList />} />
-                <Route exact path='/user' component={() => <User />} />
-                <Route exact path='/user/:id/edit' component={() => <EditUser />} />
+                <Route exact path='/' render={(props) => <ParkList {...props} />} />
+                <Route exact path='/user' render={(props) => <User {...props} />} />
+                <Route exact path='/user/:id/edit' render={(props) => <EditUser {...props} />} />
                 <Route exact path='/parks/:id' render={(props) => <ParkDetail {...props} />} />
-                <Route exact path='/login' component={() => <Login />} />
-                <Route exact path='/register' component={() => <Register />} />
+                <Route exact path='/login' render={(props) => <Login {...props} />} />
+                <Route exact path='/register' render={(props) => <Register {...props} />} />
                 <Route exact path='/zones/:id' render={(props) => <ZoneDetail {...props} />} />
             </div>
         )

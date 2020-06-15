@@ -4,11 +4,11 @@ import Nav from './Nav'
 import Main from './Main'
 import Footer from './Footer'
 
-export default function Layout()
+export default function Layout(props)
 {
     return (
         <div>
-            <Header />
+            <Header {...props} />
             <div className="flex">
                 <Nav />
                 <Main />

@@ -1,18 +1,21 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { isLoggedIn, logout } from './services/auth'
 
-export default function Header()
+export default function Header(props)
 {
 
-    let loggedIn = false
 
     const loginLogoutRegisterButtons = () =>
     {
-        if (loggedIn)
+        if (isLoggedIn())
         {
             return (
                 <>
-                    <Link to="/" className="bg-gray-200 border-gray-400 rounded-sm p-1 m-1">Log out</Link>
+                    <Link to="#"
+                        onClick={() => { logout(() => { props.history.push("/") }) }}
+                        className="bg-gray-200 border-gray-400 rounded-sm p-1 m-1">Log out</Link>
+                    <Link to="/user" className="bg-gray-200 border-gray-400 rounded-sm p-1 m-1">Profile</Link>
                 </>)
         }
         else
@@ -21,10 +24,8 @@ export default function Header()
                 <>
                     <Link to="/login" className="bg-gray-200 border-gray-400 rounded-sm p-1 m-1">Login</Link>
                     <Link to="/register" className="bg-gray-200 border-gray-400 rounded-sm p-1 m-1">Register</Link>
-                    <Link to="/user" className="bg-gray-200 border-gray-400 rounded-sm p-1 m-1">User</Link>
-                
                 </>)
-        }       
+        }
     }
 
     return (
