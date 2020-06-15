@@ -26,7 +26,9 @@ export default class Post extends Component
                 </div>
                 <h1> {post.user.name}</h1>
                 <div className="w-10 h-10 rounded-full"><img src={post.user.picture_url} /></div>
-            </div>
+           
+           
+                </div> 
         )
     }
 }

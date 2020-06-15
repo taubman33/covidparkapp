@@ -38,3 +38,17 @@ export const getUser = async (userId) =>
     let response = await tryCatchAPICall("GET", `/users/${userId}`)
     return response
 }
+
+
+export const createPost = async (zoneId, postId) =>
+{
+    let response = await tryCatchAPICall("POST", `/zones/${zoneId}/${postId}`)
+    return response
+}
+
+
+export const editPost = async (zoneId, postId) =>
+{
+    let response = await tryCatchAPICall("PUT", `/zones/${zoneId}/${postId}`)
+    return response
+}
