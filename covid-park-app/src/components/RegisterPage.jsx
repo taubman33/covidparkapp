@@ -1,13 +1,23 @@
 import React, { Component } from 'react'
 import Register from './Forms/Register'
 import { handleSignup } from './services/auth'
-
+import { GetRandomAvatarString } from './services/avatarOptions'
 
 export default class RegisterPage extends Component
 {
     state = {
         email: ``,
-        password: ``
+        password: ``,
+        name: ``,
+        location: ``,
+        picture_url: GetRandomAvatarString()
+    }
+
+    randomizeAvatar = () =>
+    {
+        this.setState({
+            picture_url: GetRandomAvatarString()
+        })
     }
 
     handleChange = event =>
@@ -29,7 +39,7 @@ export default class RegisterPage extends Component
     {
         return (
             <div>
-                <Register handleRegister={this.tryRegister} handleChange={this.handleChange} formData={this.state} />
+                <Register handleRegister={this.tryRegister} handleChange={this.handleChange} randomizeAvatar={this.randomizeAvatar} formData={this.state} />
             </div>
         )
     }
