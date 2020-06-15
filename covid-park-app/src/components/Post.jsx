@@ -24,9 +24,9 @@ export default class Post extends Component
                     <input type="checkbox" name="not_crowded" checked={post.not_crowded} />
                     <label for="not_crowded"> The park is generally not crowded in this area</label>
                 </div>
-                {/* <h1> {post.user.name}</h1>
+                <h1> {post.user.name}</h1>
                 <div className="w-10 h-10 rounded-full"><img src={post.user.picture_url} /></div>
-            */}
+           
            
                 </div> 
         )
