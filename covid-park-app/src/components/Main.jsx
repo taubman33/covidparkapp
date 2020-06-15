@@ -8,6 +8,8 @@ import ParkDetail from './ParkDetail'
 import Login from './LoginPage'
 import Register from './RegisterPage'
 import ZoneDetail from './ZoneDetail'
+import EditPost from './Forms/EditPost'
+import CreatePost from './Forms/CreatePost'
 
 export default class Main extends Component
 {
@@ -23,11 +25,10 @@ export default class Main extends Component
                 <Route exact path='/register' render={(props) => <Register {...props} />} />
                 <Route exact path='/zones/:id' render={(props) => <ZoneDetail {...props} />} />
 
-{/* 
+
                 <Route exact path='/createPost' render={(props) => <CreatePost {...props} /> }/>
-      
-                <Route exact path='/editPost/:id' render={(props)=> <EditPedal {...props}/> }/> 
-        */}
+                <Route exact path='/editPost/:id' render={(props)=> <EditPost {...props}/> }/> 
+       
             </div>
         )
     }

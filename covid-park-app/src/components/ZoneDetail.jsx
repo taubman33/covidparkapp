@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
+import { Link}  from 'react-router-dom'
 import { getZone } from './services/apiCalls'
 import Post from './Post'
+import CreatePost from './Forms/CreatePost'
 
 export default class ZoneDetail extends Component {
 
@@ -54,7 +56,7 @@ export default class ZoneDetail extends Component {
                 <h2> {zone && zone.location}</h2>
                 <h2> Average Rating: {zone && this.zoneRating(zone.average_rating)}</h2>
                 
-                <div className="w-40">
+                <div className="w-5/12">
                 <img src={zone && zone.picture_url}/>
                 </div>
 
@@ -64,7 +66,17 @@ export default class ZoneDetail extends Component {
              )}
              </div>
 
+  
+             {/* <button className="bg-green-200 border-gray-400 rounded-sm p-1 m-1">
+                    <Link to={CreatePost}>Add Post 
+                    </Link>
+                    </button> */}
 
+
+             <button className="bg-green-200 border-gray-400 rounded-sm p-1 m-1">
+                 <Link to="/parks/1">
+                     Back to Park</Link>
+                     </button>
 
             </div>
         )

@@ -6,7 +6,7 @@ export default class User extends Component {
         return (
             <div>
                 <h1>Hello ~Username~</h1>
-                {/* <h1>{{this.props.user && this.props.user[0].username}</h1> */}
+                {/* <h1>{{this.props.user && this.props.user[0].username}}</h1> */}
 
                 <div className="w-40">
                 
@@ -16,10 +16,10 @@ export default class User extends Component {
 
                 
                 <h2> Email Address: </h2>
-                {/* <h2>{this.props.user && this.props.user[0].email}</h2> */}
+                <h2>{this.props.user && this.props.user[0].email}</h2>
 
                 <h3> Location:</h3>
-                {/* <h3>{this.props.user && this.props.user[0].location}</h3> */}
+                <h3>{this.props.user && this.props.user[0].location}</h3>
 
                 
                 <button className="bg-green-200 border-gray-400 rounded-sm p-1 m-1"><h4>Edit Profile</h4></button>

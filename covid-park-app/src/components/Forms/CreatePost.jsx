@@ -121,4 +121,3 @@ import axios from "axios";
     }   
   }
   
-  export default CreatePost;

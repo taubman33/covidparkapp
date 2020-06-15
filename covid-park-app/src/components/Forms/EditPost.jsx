@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from "axios";
-import {editPost, getZone } from '../../services/api-helper'
+import {editPost, getZone } from '../services/apiCalls.js'
 
 
 export default class EditPost extends Component {
@@ -10,8 +10,8 @@ export default class EditPost extends Component {
     masks: false,
     not_crowded: false,
     distancing: false,
-    user: '',
-    zone: ''
+    // user_id: user,
+    // zone_id: zone
   }
 
 
@@ -46,7 +46,7 @@ getZone = async () =>
     onSubmit = async (evt) =>{
         evt.preventDefault()    
         const idParams = this.props.match.params.id
-        let res = updatePedal(idParams,this.state)
+        let res = editPost(idParams,this.state)
         this.props.history.push('/pedals/' + idParams )
     }
 

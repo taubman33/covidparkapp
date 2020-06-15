@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import EditPost from './Forms/EditPost'
 
 export default class ZoneCard extends Component {
     zoneRating = (rating) =>
@@ -28,18 +29,27 @@ export default class ZoneCard extends Component {
         const {zone} = this.props 
 
         return (
-            <Link to={`/zones/${zone.id}`}>
-            <div className= "h-64 w-64 border border-gray-300 m-4">
-                <h1> {zone && zone.name}</h1>
-                <h2> {zone && zone.location}</h2>
-                <h2> Average Rating: {zone && this.zoneRating(zone.average_rating)}</h2>
-                
-                <div className="w-40">
-                <img src={zone && zone.picture_url}/>
+            <div>
+                <Link to={`/zones/${zone.id}`}>
+                <div className= "h-64 w-64 border border-gray-300 m-4">
+                    <h1> {zone && zone.name}</h1>
+                    <h2> {zone && zone.location}</h2>
+                    <h2> Average Rating: {zone && this.zoneRating(zone.average_rating)}</h2>
+                    
+                    <div className="w-40">
+                    <img src={zone && zone.picture_url}/>
+                    </div>
                 </div>
-            </div>
-            </Link>
-        )
+                    </Link>
+        
+                    <button className="bg-green-200 border-gray-400 rounded-sm p-1 m-1">
+                 <Link to={EditPost}>
+                     Edit your post</Link>
+                     </button>
 
-    }
+            </div>
+           
+
+        )
+   }
 }
