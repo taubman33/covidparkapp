@@ -43,7 +43,7 @@ import axios from "axios";
     handleFormChange = (e)=> {
       const { name, value } = e.target;
       this.setState({
-          [name]: value
+          [name]: value==="true"
         })
       }
   
@@ -64,20 +64,15 @@ import axios from "axios";
      
           this.props.history.push('/zones/:id/post' + post.id )
       }
-  
-
-
-        // if Yes button selected, rating +1
-
-
 
     render() {
       //   controlled component form that statefully updates name and photo
+      console.log(this.state)
       return (
         <div>
          
-            <div className="w-52">
-            <h2 className="text-3xl text-green-600 hover:text-green-700 font-black"> Add a post for this zone </h2>
+            <div >
+            <h2 className="text-3xl text-green-600 hover:text-green-700 font-black"> Add Post For This Zone </h2>
          
             <form onSubmit={this.onSubmit}>
             <div className="form" >
@@ -85,70 +80,74 @@ import axios from "axios";
 
             <label for="content"><h2 className="text-xl font-black text-green-400">Comment</h2></label>
               
-              <textarea rows="8" name="content" id="content" placeholder=" " required=""></textarea>
+            <textarea rows="8" name="content" id="content" placeholder=" " required=""></textarea>
                 
-               <br/>
+            <br/>
 
-               <h2 className="text-xl font-black text-green-400">Are People Wearing Masks? </h2>
+            <h2 className="text-xl font-black text-green-400">Are People Wearing Masks? </h2>
 
               
                 <input type="radio"
                 name="masks"
-                id="Yes"
+                id="true"
                 style={{margin:"1rem"}}
-                value="true"
+                value="true"                checked={this.state.masks===true}
                 onChange={this.handleFormChange} />
                 <label for="true"> Yes</label>
           
                 <input type="radio"
                 name="masks"
-                id="No"
+                id="false"
                 style={{margin:"1rem"}}
-                value="false"
+                value= "false"
+                checked={this.state.masks===false}
                 onChange={this.handleFormChange} />
                 <label for="false"> No</label>  
                 <br/>
 
                
 
-
-                <h2 className="text-xl font-black text-green-400">Is There Space for People?: </h2>
+                <h2 className="text-xl font-black text-green-400">Is The Park Below 50% Capacity? </h2>
               <input
                 type="radio"
                 name="not_crowded"
-                id="Yes"
+                id="true"
                 style={{margin:"1rem"}}
                 value="true"
+                checked={this.state.not_crowded===true}
                 onChange={this.handleFormChange} />
                 <label for="true"> Yes</label>
 
                <input
                 type="radio"
                 name="not_crowded"
-                id="No"
+                id="false"
                 style={{margin:"1rem"}}
                 value="false"
+                checked={this.state.not_crowded===false}
                 onChange={this.handleFormChange} />
                 <label for="false"> No</label>   
                 <br/>
 
 
-              <h2 className="text-xl font-black text-green-400">Are People Practicing Social Distancing?: </h2>
+              <h2 className="text-xl font-black text-green-400">Are People Practicing Social Distancing? </h2>
               <input
                 type="radio"
                 name="distancing"
-                id="Yes"
+                id="true"
                 style={{margin:"1rem"}}
-                value={this.state.distancing}
+                value="true"
+                checked={this.state.distancing===true}
                 onChange={this.handleFormChange} />
                 <label for="true"> Yes</label>
 
                <input
                 type="radio"
                 name="distancing"
-                id="No"
+                id="false"
                 style={{margin:"1rem"}}
-                value={this.state.distancing}
+                value= "false"
+                checked={this.state.distancing===false}
                 onChange={this.handleFormChange} />
                 <label for="false"> No</label>  
                 <br/>
@@ -159,9 +158,8 @@ import axios from "axios";
             </form>
           </div>
          </div>
-      )
+    )
     }   
   }
-  
 
   
