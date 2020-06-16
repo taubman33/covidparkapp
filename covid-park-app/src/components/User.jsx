@@ -32,8 +32,7 @@ export default class User extends Component
                 return (
                     <div>
                         <div>Hello {name} </div>
-                        <img key="userAvatarPic" src={picture_url} alt="avatar" />
-
+                        <img key="userAvatarPic" className="h-48" src={picture_url} alt="avatar" />
                         <div>Email: {email}</div>
                         <div>Location: {location}</div>
                         <Link to="/useredit" className="bg-green-200 border-gray-400 rounded-sm p-1">Edit Profile</Link>
