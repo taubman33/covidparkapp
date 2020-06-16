@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Link}  from 'react-router-dom'
 import { getZone } from './services/apiCalls'
 import Post from './Post'
-import CreatePost from './Forms/CreatePost'
+
 
 export default class ZoneDetail extends Component
 {
@@ -53,12 +53,18 @@ export default class ZoneDetail extends Component
         return (
             <div>
 
+                <div>
+                <h1 className="text-3xl text-green-600 hover:text-green-700 font-black"> {zone && zone.name}</h1>
+                <h2 className="text-xl font-black text-green-400"> {zone && zone.location}</h2>
+                </div>
 
-                <h1> {zone && zone.name}</h1>
-                <h2> {zone && zone.location}</h2>
-                <h2> Average Rating: {zone && this.zoneRating(zone.average_rating)}</h2>
 
-                <div className="w-40">
+                <h2 > Average Rating: {zone && this.zoneRating(zone.average_rating)}</h2>
+                <h2>Masks: </h2>
+                <h2>Is there space in the park?</h2>
+                <h2>Are people practicing social distancing?</h2>
+
+                <div className="w-52">
                     <img src={zone && zone.picture_url} alt={zone && zone.name} />
                 </div>
 
