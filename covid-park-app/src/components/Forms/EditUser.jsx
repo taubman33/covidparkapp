@@ -1,11 +1,9 @@
-import React, { Component } from 'react'
+import React from 'react'
+import UserForm from './UserForm'
 
-export default class EditUser extends Component {
-    render() {
-        return (
-            <div>
-                <h2> edit user</h2>
-            </div>
-        )
-    }
+export default function EditUser(props)
+{
+    return (
+
+    )
 }

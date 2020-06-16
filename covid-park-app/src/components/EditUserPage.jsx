@@ -1,16 +1,24 @@
 import React, { Component } from 'react'
-import { handleSignup } from './services/auth'
 import { GetRandomAvatarString } from './services/avatarOptions'
+import { getProfile, editProfile } from './services/apiCalls'
 import UserForm from './Forms/UserForm'
 
-export default class RegisterPage extends Component
+export default class EditUserPage extends Component
 {
     state = {
         email: ``,
         password: ``,
         name: ``,
         location: ``,
-        picture_url: GetRandomAvatarString()
+        picture_url: ``
+    }
+
+    async componentDidMount()
+    {
+        let response = await getProfile()
+        this.setState({
+            ...response.data
+        })
     }
 
     randomizeAvatar = () =>
@@ -27,12 +35,13 @@ export default class RegisterPage extends Component
         })
     }
 
-    tryRegister = async () =>
+    trySubmit = async () =>
     {
-        await handleSignup(this.state, () =>
+        let response = await editProfile(this.state)
+        if (response.data.message === "ok")
         {
-            this.props.history.push("/login")
-        })
+            this.props.history.push("/user")
+        }
     }
 
     render()
@@ -40,12 +49,13 @@ export default class RegisterPage extends Component
         return (
             <div>
                 <hr />
-                <h2>Create a new account!</h2>
-                <UserForm handleSubmit={this.tryRegister}
+                <h2>Edit your account details!</h2>
+                <UserForm
+                    handleSubmit={this.trySubmit}
                     handleChange={this.handleChange}
                     randomizeAvatar={this.randomizeAvatar}
                     formData={this.state}
-                    register={true} />
+                    register={false} />
             </div>
         )
     }
