@@ -16,28 +16,31 @@ const rand = (array) =>
     return array[Math.floor(Math.random() * array.length)]
 }
 
-export const GetRandomAvatarString = () => (`https://avataaars.io/?avatarStyle=${
-    style[1]
-    }&topType=${
-    rand(topType)
-    }&accessoriesType=${
-    rand(accessoriesType)
-    }&hairColor=${
-    rand(hairColor)
-    }&facialHairType=${
-    rand(facialHairType)
-    }&facialHairColor=${
-    rand(facialHairColor)
-    }&clotheColor=${
-    rand(clotheColor)
-    }&clotheType=${
-    rand(clotheType)
-    }&eyeType=${
-    rand(eyeType)
-    }&eyebrowType=${
-    rand(eyebrowType)
-    }&mouthType=${
-    rand(mouthType)
-    }&skinColor=${
-    rand(skinColor)
-    }`)
+export const GetRandomAvatarString = () => (`https://avatars.dicebear.com/api/avataaars/:${[...Array(10)].map(i => (~~(Math.random() * 36)).toString(36)).join('')}.svg`
+
+    // `https://avataaars.io/?avatarStyle=${
+    // style[1]
+    // }&topType=${
+    // rand(topType)
+    // }&accessoriesType=${
+    // rand(accessoriesType)
+    // }&hairColor=${
+    // rand(hairColor)
+    // }&facialHairType=${
+    // rand(facialHairType)
+    // }&facialHairColor=${
+    // rand(facialHairColor)
+    // }&clotheColor=${
+    // rand(clotheColor)
+    // }&clotheType=${
+    // rand(clotheType)
+    // }&eyeType=${
+    // rand(eyeType)
+    // }&eyebrowType=${
+    // rand(eyebrowType)
+    // }&mouthType=${
+    // rand(mouthType)
+    // }&skinColor=${
+    // rand(skinColor)
+    // }`
+)
