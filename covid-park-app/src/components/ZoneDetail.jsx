@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import { Link}  from 'react-router-dom'
 import { getZone } from './services/apiCalls'
+import PlaceRating from './PlaceRating'
 import Post from './Post'
-
+import Rating from './Rating' 
 
 export default class ZoneDetail extends Component
 {
@@ -50,6 +51,7 @@ export default class ZoneDetail extends Component
     render()
     {
         const { zone } = this.state
+        
         return (
             <div>
 
@@ -59,11 +61,7 @@ export default class ZoneDetail extends Component
                 </div>
 
 
-                <h2 > Average Rating: {zone && this.zoneRating(zone.average_rating)}</h2>
-                <h2>Masks: </h2>
-                <h2>Is there space in the park?</h2>
-                <h2>Are people practicing social distancing?</h2>
-
+                {zone && <PlaceRating place={zone} />}
                 <div className="w-52">
                     <img src={zone && zone.picture_url} alt={zone && zone.name} />
                 </div>
