@@ -66,37 +66,44 @@ import axios from "axios";
       }
   
 
+
+        // if Yes button selected, rating +1
+
+
+
     render() {
       //   controlled component form that statefully updates name and photo
       return (
         <div>
          
             <div className="w-52">
-            <h2> Add a post for this zone</h2>
+            <h2 className="text-3xl text-green-600 hover:text-green-700 font-black"> Add a post for this zone </h2>
          
             <form onSubmit={this.onSubmit}>
             <div className="form" >
 
 
-            <label for="content"><h2>Comment</h2></label>
+            <label for="content"><h2 className="text-xl font-black text-green-400">Comment</h2></label>
               
               <textarea rows="8" name="content" id="content" placeholder=" " required=""></textarea>
                 
                <br/>
 
-                <h2>Are People Wearing Masks? </h2>
+               <h2 className="text-xl font-black text-green-400">Are People Wearing Masks? </h2>
 
-              <div className="m-3">
+              
                 <input type="radio"
                 name="masks"
                 id="Yes"
+                style={{margin:"1rem"}}
                 value="true"
                 onChange={this.handleFormChange} />
                 <label for="true"> Yes</label>
-                </div>
+          
                 <input type="radio"
                 name="masks"
                 id="No"
+                style={{margin:"1rem"}}
                 value="false"
                 onChange={this.handleFormChange} />
                 <label for="false"> No</label>  
@@ -105,10 +112,12 @@ import axios from "axios";
                
 
 
-                <h2>Is There Space for People?: </h2>
+                <h2 className="text-xl font-black text-green-400">Is There Space for People?: </h2>
               <input
                 type="radio"
                 name="not_crowded"
+                id="Yes"
+                style={{margin:"1rem"}}
                 value="true"
                 onChange={this.handleFormChange} />
                 <label for="true"> Yes</label>
@@ -116,16 +125,20 @@ import axios from "axios";
                <input
                 type="radio"
                 name="not_crowded"
+                id="No"
+                style={{margin:"1rem"}}
                 value="false"
                 onChange={this.handleFormChange} />
                 <label for="false"> No</label>   
                 <br/>
 
 
-                <h2>Are People Practicing Social Distancing?: </h2>
+              <h2 className="text-xl font-black text-green-400">Are People Practicing Social Distancing?: </h2>
               <input
                 type="radio"
                 name="distancing"
+                id="Yes"
+                style={{margin:"1rem"}}
                 value={this.state.distancing}
                 onChange={this.handleFormChange} />
                 <label for="true"> Yes</label>
@@ -133,6 +146,8 @@ import axios from "axios";
                <input
                 type="radio"
                 name="distancing"
+                id="No"
+                style={{margin:"1rem"}}
                 value={this.state.distancing}
                 onChange={this.handleFormChange} />
                 <label for="false"> No</label>  
