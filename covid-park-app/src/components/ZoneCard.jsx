@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import EditPost from './Forms/EditPost'
 
-export default class ZoneCard extends Component {
+export default class ZoneCard extends Component
+{
     zoneRating = (rating) =>
     {
         if (rating === -1)
@@ -24,11 +25,13 @@ export default class ZoneCard extends Component {
     }
 
 
-    render() {
+    render()
+    {
 
-        const {zone} = this.props 
+        const { zone } = this.props
 
         return (
+<<<<<<< HEAD
             <div>
                 <Link to={`/zones/${zone.id}`}>
                 <div className= "h-64 w-64 border border-gray-300 m-4">
@@ -43,6 +46,17 @@ export default class ZoneCard extends Component {
                     </Link>
             </div>
            
+=======
+            <Link to={`/zones/${zone.id}`}>
+                <div className="w-64 border rounded-sm bg-gray-100 border-gray-300 hover:border-green-300 hover:bg-green-100 mt-2 p-2 shadow hover:shadow-none hover:translate-y-8">
+                    <div className="text h-12 font-semibold"> {zone && zone.name}</div>
+                    <div className="text-sm h-16"> {zone && zone.location}</div>
+                    <div className="text-xs"> Average Rating: {zone && this.zoneRating(zone.average_rating)}</div>
+                    <img className="w-full h-24 overflow-hidden object-cover object-center" src={zone && zone.picture_url} alt={zone && zone.name} />
+                </div>
+            </Link>
+        )
+>>>>>>> 03c2df7a0a83aed1ebe165ca97fe3c4e80ca2b34
 
         )
    }

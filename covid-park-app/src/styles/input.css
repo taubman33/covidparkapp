@@ -2,4 +2,16 @@
 
 @tailwind components;
 
+*{
+    transition: 0.15s;
+}
+
+.header-button {
+    @apply text-lg bg-gray-200 border-gray-400 rounded-sm p-2 m-1;
+}
+
+.header-button:hover {
+    @apply shadow bg-gray-100 rounded-sm;
+}
+
 @tailwind utilities;

@@ -52,3 +52,16 @@ export const editPost = async (zoneId, postId) =>
     let response = await tryCatchAPICall("PUT", `/zones/${zoneId}/${postId}`)
     return response
 }
+
+
+export const getProfile = async () =>
+{
+    let response = await tryCatchAPICall("GET", `/profile`)
+    return response
+}
+
+export const editProfile = async (editedProfile) =>
+{
+    let response = await tryCatchAPICall("PUT", `/profile`, editedProfile)
+    return response
+}

@@ -2,7 +2,6 @@ import React from 'react'
 
 export default function ParkCard(props)
 {
-    console.log(props)
     const { park } = props
 
     const parkRating = (rating) =>
@@ -26,14 +25,14 @@ export default function ParkCard(props)
     }
 
     return (
-        <div className="m-2 p-2 w-full bg-gray-200 rounded shadow-lg">
+        <div className="">
             <div className="flex">
                 <div className="text-xl">{park.name}</div>
     
                 <div className="m-1">{parkRating(park.average_rating)}</div>
             </div>
             <div>
-                <img src={park.picture_url} />
+                <img src={park.picture_url} alt={park.name} />
             </div>
 
 
