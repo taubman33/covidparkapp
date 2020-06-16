@@ -4,33 +4,11 @@ import { isLoggedIn } from './services/auth'
 import { Redirect, Link } from 'react-router-dom'
 import { getProfile } from './services/apiCalls'
 
-<<<<<<< HEAD
-export default class User extends Component {
-    render() {
-        return (
-            <div>
-                <h1>Hello ~Username~</h1>
-                {/* <h1>{{this.props.user && this.props.user[0].username}}</h1> */}
-
-                <div className="w-40">
-                
-                 <img src={UserImg}/>
-                {/* <img src={{this.props.user && this.props.user[0].image}/> */}
-                </div>
-
-                
-                <h2> Email Address: </h2>
-                <h2>{this.props.user && this.props.user[0].email}</h2>
-
-                <h3> Location:</h3>
-                <h3>{this.props.user && this.props.user[0].location}</h3>
-=======
 export default class User extends Component
 {
     state = {
         user: null
     }
->>>>>>> 03c2df7a0a83aed1ebe165ca97fe3c4e80ca2b34
 
     async componentDidMount()
     {

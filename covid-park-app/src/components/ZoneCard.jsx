@@ -31,22 +31,6 @@ export default class ZoneCard extends Component
         const { zone } = this.props
 
         return (
-<<<<<<< HEAD
-            <div>
-                <Link to={`/zones/${zone.id}`}>
-                <div className= "h-64 w-64 border border-gray-300 m-4">
-                    <h1> {zone && zone.name}</h1>
-                    <h2> {zone && zone.location}</h2>
-                    <h2> Average Rating: {zone && this.zoneRating(zone.average_rating)}</h2>
-                    
-                    <div className="w-40">
-                    <img src={zone && zone.picture_url}/>
-                    </div>
-                </div>
-                    </Link>
-            </div>
-           
-=======
             <Link to={`/zones/${zone.id}`}>
                 <div className="w-64 border rounded-sm bg-gray-100 border-gray-300 hover:border-green-300 hover:bg-green-100 mt-2 p-2 shadow hover:shadow-none hover:translate-y-8">
                     <div className="text h-12 font-semibold"> {zone && zone.name}</div>
@@ -56,8 +40,6 @@ export default class ZoneCard extends Component
                 </div>
             </Link>
         )
->>>>>>> 03c2df7a0a83aed1ebe165ca97fe3c4e80ca2b34
 
-        )
    }
 }

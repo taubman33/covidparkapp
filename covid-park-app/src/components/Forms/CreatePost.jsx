@@ -71,32 +71,29 @@ import axios from "axios";
       return (
         <div>
          
-            <div className="create-form">
+            <div className="w-52">
             <h2> Add a post for this zone</h2>
          
             <form onSubmit={this.onSubmit}>
             <div className="form" >
 
 
-              <label>Comment:</label>
-              <input
-                type="text"
-                name="content"
-                value="" 
-                onChange={this.handleFormChange} />
-                 <textarea rows="8" name="message" id="message" placeholder=" " required=""></textarea>
-                <br/>
+            <label for="content"><h2>Comment</h2></label>
+              
+              <textarea rows="8" name="content" id="content" placeholder=" " required=""></textarea>
+                
+               <br/>
 
                 <h2>Are People Wearing Masks? </h2>
 
-
+              <div className="m-3">
                 <input type="radio"
                 name="masks"
                 id="Yes"
                 value="true"
                 onChange={this.handleFormChange} />
                 <label for="true"> Yes</label>
-
+                </div>
                 <input type="radio"
                 name="masks"
                 id="No"
@@ -104,6 +101,8 @@ import axios from "axios";
                 onChange={this.handleFormChange} />
                 <label for="false"> No</label>  
                 <br/>
+
+               
 
 
                 <h2>Is There Space for People?: </h2>

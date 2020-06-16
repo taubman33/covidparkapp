@@ -8,6 +8,9 @@ import Login from './LoginPage'
 import Register from './RegisterPage'
 import ZoneDetail from './ZoneDetail'
 import EditUserPage from './EditUserPage'
+import CreatePost from './Forms/CreatePost'
+import EditPost from './Forms/EditPost'
+
 
 export default class Main extends Component
 {
