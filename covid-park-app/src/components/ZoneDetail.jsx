@@ -2,10 +2,11 @@ import React, { Component } from 'react'
 import { getZone } from './services/apiCalls'
 import Post from './Post'
 
-export default class ZoneDetail extends Component {
+export default class ZoneDetail extends Component
+{
 
     state = {
-        zone: null 
+        zone: null
     }
 
     componentDidMount()
@@ -13,10 +14,10 @@ export default class ZoneDetail extends Component {
         this.getZone()
     }
 
-    getZone= async () =>
+    getZone = async () =>
     {
         console.log(this.props.match.params.id)
-        let response = await  getZone(this.props.match.params.id)
+        let response = await getZone(this.props.match.params.id)
         this.setState({
             zone: response.data
         })
@@ -44,25 +45,26 @@ export default class ZoneDetail extends Component {
     }
 
 
-    render() {
-        const {zone} = this.state
+    render()
+    {
+        const { zone } = this.state
         return (
             <div>
-        
 
-             <h1> {zone && zone.name}</h1>
+
+                <h1> {zone && zone.name}</h1>
                 <h2> {zone && zone.location}</h2>
                 <h2> Average Rating: {zone && this.zoneRating(zone.average_rating)}</h2>
-                
+
                 <div className="w-40">
-                <img src={zone && zone.picture_url}/>
+                    <img src={zone && zone.picture_url} alt={zone && zone.name} />
                 </div>
 
                 <div className="flex flex-wrap">
-        {zone && zone.posts.map ((post, index) =>
-             (<Post post = {post} key={index}/>)
-             )}
-             </div>
+                    {zone && zone.posts.map((post, index) =>
+                        (<Post post={post} key={index} />)
+                    )}
+                </div>
 
 
 

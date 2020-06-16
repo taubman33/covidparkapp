@@ -26,6 +26,10 @@ export const GetRandomAvatarString = () => (`https://avataaars.io/?avatarStyle=$
     rand(hairColor)
     }&facialHairType=${
     rand(facialHairType)
+    }&facialHairColor=${
+    rand(facialHairColor)
+    }&clotheColor=${
+    rand(clotheColor)
     }&clotheType=${
     rand(clotheType)
     }&eyeType=${

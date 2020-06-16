@@ -35,7 +35,7 @@ export default class ZoneCard extends Component
                     <div className="text h-12 font-semibold"> {zone && zone.name}</div>
                     <div className="text-sm h-16"> {zone && zone.location}</div>
                     <div className="text-xs"> Average Rating: {zone && this.zoneRating(zone.average_rating)}</div>
-                    <img className="w-full h-24 overflow-hidden object-cover object-center" src={zone && zone.picture_url} />
+                    <img className="w-full h-24 overflow-hidden object-cover object-center" src={zone && zone.picture_url} alt={zone && zone.name} />
                 </div>
             </Link>
         )

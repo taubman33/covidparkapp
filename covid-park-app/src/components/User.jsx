@@ -1,32 +1,49 @@
 import React, { Component } from 'react'
-import UserImg from './assets/dummyuserimage.jpg'
+//import UserImg from './assets/dummyuserimage.jpg'
+import { isLoggedIn } from './services/auth'
+import { Redirect, Link } from 'react-router-dom'
+import { getProfile } from './services/apiCalls'
 
-export default class User extends Component {
-    render() {
-        return (
-            <div>
-                <h1>Hello ~Username~</h1>
-                {/* <h1>{{this.props.user && this.props.user[0].username}</h1> */}
+export default class User extends Component
+{
+    state = {
+        user: null
+    }
 
-                <div className="w-40">
-                
-                 <img src={UserImg}/>
-                {/* <img src={{this.props.user && this.props.user[0].image}/> */}
-                </div>
+    async componentDidMount()
+    {
+        let response = await getProfile()
+        this.setState({
+            user: response.data
+        })
+    }
 
-                
-                <h2> Email Address: </h2>
-                {/* <h2>{this.props.user && this.props.user[0].email}</h2> */}
+    render()
+    {
+        if (!isLoggedIn())
+        {
+            return <Redirect to="/login" />
+        }
+        else
+        {
+            if (this.state.user)
+            {
+                const { name, picture_url, email, location } = this.state.user
 
-                <h3> Location:</h3>
-                {/* <h3>{this.props.user && this.props.user[0].location}</h3> */}
-
-                
-                <button className="bg-green-200 border-gray-400 rounded-sm p-1 m-1"><h4>Edit Profile</h4></button>
-
-
-               
-            </div>
-        )
+                return (
+                    <div>
+                        <div>Hello {name} </div>
+                        <img key="userAvatarPic" src={picture_url} alt="avatar" />
+                        <div>Email: {email}</div>
+                        <div>Location: {location}</div>
+                        <Link to="/useredit" className="bg-green-200 border-gray-400 rounded-sm p-1">Edit Profile</Link>
+                    </div>
+                )
+            }
+            else
+            {
+                return "Loading..."
+            }
+        }
     }
 }
