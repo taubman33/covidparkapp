@@ -27,7 +27,13 @@ export default class Post extends Component
                 <h1> {post.user.name}</h1>
                 <div className="w-10 h-10 rounded-full"><img src={post.user.picture_url} /></div>
            
-           
+                {/* <button className="bg-green-200 border-gray-400 rounded-sm p-1 m-1">
+                 {/* <Link to={EditPost}>
+                     <h2>Edit your post</h2></Link>
+                     
+                     <h2> edit post</h2>
+                     </button> */}
+
                 </div> 
         )
     }

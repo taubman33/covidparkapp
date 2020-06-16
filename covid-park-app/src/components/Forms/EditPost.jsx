@@ -54,11 +54,11 @@ getZone = async () =>
   render() {
     
     return (
-      <div >
-        <div  >
+      <div>
+        <div>
           <h2>  Edit your post</h2>
           
-          <form onSubmit={this.onSubmit}>
+          {/* <form onSubmit={this.onSubmit}>
           <div>
 
             <label>Description: </label>
@@ -97,11 +97,12 @@ getZone = async () =>
             </div>
           
             <button><h4>Submit</h4></button>
+                  </form>
+      
+ */}
 
-
-          </form>
-        </div>
-
+    
+  </div>
 
        </div>
     )

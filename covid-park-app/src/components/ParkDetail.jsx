@@ -27,7 +27,7 @@ export default class ParkDetail extends Component {
         return (
             <div>
         
-
+          
             <h1>{park && park.name}</h1>
 
             <h2>{park && park.boro}</h2>

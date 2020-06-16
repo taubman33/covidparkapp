@@ -82,38 +82,66 @@ import axios from "axios";
               <input
                 type="text"
                 name="content"
-                value={this.state.content} 
+                value="" 
                 onChange={this.handleFormChange} />
+                 <textarea rows="8" name="message" id="message" placeholder=" " required=""></textarea>
                 <br/>
 
-                <label>Are People Wearing Masks? </label>
-              <input
-                type="boolean"
+                <h2>Are People Wearing Masks? </h2>
+
+
+                <input type="radio"
                 name="masks"
-                value={this.state.masks}
+                id="Yes"
+                value="true"
                 onChange={this.handleFormChange} />
+                <label for="true"> Yes</label>
+
+                <input type="radio"
+                name="masks"
+                id="No"
+                value="false"
+                onChange={this.handleFormChange} />
+                <label for="false"> No</label>  
                 <br/>
 
-                <label>Is There Space for People?: </label>
+
+                <h2>Is There Space for People?: </h2>
               <input
-                type="boolean"
+                type="radio"
                 name="not_crowded"
-                value={this.state.not_crowded}
+                value="true"
                 onChange={this.handleFormChange} />
+                <label for="true"> Yes</label>
+
+               <input
+                type="radio"
+                name="not_crowded"
+                value="false"
+                onChange={this.handleFormChange} />
+                <label for="false"> No</label>   
                 <br/>
 
 
-                <label>Are People Practicing Social Distancing?: </label>
+                <h2>Are People Practicing Social Distancing?: </h2>
               <input
-                type="text"
+                type="radio"
                 name="distancing"
                 value={this.state.distancing}
                 onChange={this.handleFormChange} />
+                <label for="true"> Yes</label>
+
+               <input
+                type="radio"
+                name="distancing"
+                value={this.state.distancing}
+                onChange={this.handleFormChange} />
+                <label for="false"> No</label>  
                 <br/>
                 
               </div>
 
-              <button><h4>Submit</h4></button>
+              <button className="bg-green-200 border-gray-400 rounded-sm p-1 m-1"><h4>Submit</h4></button>
             </form>
           </div>
          </div>

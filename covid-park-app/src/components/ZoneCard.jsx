@@ -41,12 +41,6 @@ export default class ZoneCard extends Component {
                     </div>
                 </div>
                     </Link>
-        
-                    <button className="bg-green-200 border-gray-400 rounded-sm p-1 m-1">
-                 <Link to={EditPost}>
-                     Edit your post</Link>
-                     </button>
-
             </div>
            
 

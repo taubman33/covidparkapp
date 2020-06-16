@@ -67,10 +67,12 @@ export default class ZoneDetail extends Component {
              </div>
 
   
-             {/* <button className="bg-green-200 border-gray-400 rounded-sm p-1 m-1">
-                    <Link to={CreatePost}>Add Post 
+             <button className="bg-green-200 border-gray-400 rounded-sm p-1 m-1">
+                    <Link to='/createPost'> 
+                    Add Post 
                     </Link>
-                    </button> */}
+                    
+                    </button>
 
 
              <button className="bg-green-200 border-gray-400 rounded-sm p-1 m-1">
