@@ -22,15 +22,19 @@ export default function Rating(props)
         }
     }
 
-    const ratingString = Math.floor(props.rating * 10) / 10
+    let ratingString = Math.floor(props.rating * 10) / 10
+    if (ratingString.toString().length === 1)
+    {
+        ratingString = ratingString.toString() + ".0"
+    }
 
     return (
-        <div className={`flex ${props.additionalClasses}`} >
-            <div className="flex">
+        <div className={`flex items-center ${props.additionalClasses}`} >
+            <div className="flex items-end">
                 {ratingString === -1 ? "Not yet rated" : ratingString}
-                <div className="text-gray-500">/3</div>
+                {props.compact ? "" : <div className="text-gray-500">/3</div>}
             </div>
-            <div className={`${ratingColor(props.rating)} ${props.sizeClasses} rounded-full m-1`}>
+            <div className={`${ratingColor(props.rating)} ${props.sizeClasses} rounded-full mx-1`}>
             </div>
         </div>
     )

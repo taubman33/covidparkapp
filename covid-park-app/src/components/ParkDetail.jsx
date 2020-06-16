@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { getPark } from './services/apiCalls'
 import ZoneCard from './ZoneCard'
+import PlaceRating from './PlaceRating'
 
 export default class ParkDetail extends Component
 {
@@ -32,8 +33,10 @@ export default class ParkDetail extends Component
                 </div>
                 <h2 className="text-md font-semibold text-green-600">{park && park.boro}</h2>
                 <h2 className="text-sm text-gray-700">{park && park.address}</h2>
-
-                <div >
+                <div className="text-sm">
+                    {park && <PlaceRating place={park} />}
+                </div>
+                <div>
                     <img className="w-full h-32 overflow-hidden object-cover" src={park && park.picture_url} alt={park && park.name} />
                 </div>
 
