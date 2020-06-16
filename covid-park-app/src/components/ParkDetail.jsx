@@ -15,12 +15,10 @@ export default class ParkDetail extends Component
 
     getPark = async () =>
     {
-        console.log(this.props.match.params.id)
         let response = await getPark(this.props.match.params.id)
         this.setState({
             park: response.data
         })
-        console.log(response)
     }
 
     render()
