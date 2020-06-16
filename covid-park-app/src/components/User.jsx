@@ -29,11 +29,11 @@ export default class User extends Component
             if (this.state.user)
             {
                 const { name, picture_url, email, location } = this.state.user
-
                 return (
                     <div>
                         <div>Hello {name} </div>
                         <img key="userAvatarPic" src={picture_url} alt="avatar" />
+
                         <div>Email: {email}</div>
                         <div>Location: {location}</div>
                         <Link to="/useredit" className="bg-green-200 border-gray-400 rounded-sm p-1">Edit Profile</Link>
