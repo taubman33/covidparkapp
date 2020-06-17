@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from "axios";
+import { createPost } from '../services/apiCalls'
   
   
   export default class CreatePost extends Component {
@@ -9,6 +10,7 @@ import axios from "axios";
       masks: false,
       not_crowded: false,
       distancing: false,
+      zone_id: 2
     }
   
     async componentDidMount(){
@@ -49,21 +51,36 @@ import axios from "axios";
   
       onSubmit = async (evt) =>{
           evt.preventDefault()
+          console.log(this.state)
+          createPost(this.state)
           
-    
-          let token = localStorage.getItem('authToken');
-          let res = await axios({
-            url: 'localhost.com/3000',
-            method: "POST",
-            data: this.state,
-            headers: {'authorization': `Bearer ${token}`}
-          })
+          // let token = localStorage.getItem('authToken');
+          // let res = await axios({
+          //   url: `http://localhost:3000/api/v1/posts`,
+          //   method: "POST",
+          //   data: this.state,
+          //   headers: {'authorization': `Bearer ${token}`}
+          // })
        
-          const post = res.data
+          // const post = res.data
         
      
-          this.props.history.push('/zones/:id/post' + post.id )
+          // this.props.history.push('/zones/:id/post' + post.id )
       }
+
+
+
+
+      postComment = (event) =>{
+        const { name, value } = event.target;
+        this.setState({
+            [name]: value
+          })
+        console.log('something')
+        }
+
+
+
 
     render() {
       //   controlled component form that statefully updates name and photo
@@ -80,7 +97,14 @@ import axios from "axios";
 
             <label for="content"><h2 className="text-xl font-black text-green-400">Comment</h2></label>
               
-            <textarea rows="8" name="content" id="content" placeholder=" " required=""></textarea>
+            <textarea rows="8" 
+              name="content" 
+              id="content"
+               placeholder="" 
+               required=""
+               onChange={this.postComment}>
+            
+            </textarea>
                 
             <br/>
 
@@ -91,7 +115,8 @@ import axios from "axios";
                 name="masks"
                 id="true"
                 style={{margin:"1rem"}}
-                value="true"                checked={this.state.masks===true}
+                value="true"                
+                checked={this.state.masks===true}
                 onChange={this.handleFormChange} />
                 <label for="true"> Yes</label>
           
@@ -154,7 +179,9 @@ import axios from "axios";
                 
               </div>
 
-              <button className="bg-green-200 border-gray-400 rounded-sm p-1 m-1"><h4>Submit</h4></button>
+              <button className="bg-green-200 border-gray-400 rounded-sm p-1 m-1"
+      
+              ><h4>Submit</h4></button>
             </form>
           </div>
          </div>
