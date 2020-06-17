@@ -27,7 +27,7 @@ export default class Main extends Component
                 <Route exact path='/zones/:id' render={(props) => <ZoneDetail {...props} />} />
 
               
-                <Route exact path='/createPost' render={(props) => <CreatePost {...props} /> }/>
+                <Route exact path='/zones/:id/createPost' render={(props) => <CreatePost {...props} /> }/>
                 <Route exact path='/editPost/:id' render={(props)=> <EditPost {...props}/> }/> 
        
             </div>

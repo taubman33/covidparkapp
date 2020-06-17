@@ -10,7 +10,7 @@ import { createPost } from '../services/apiCalls'
       masks: false,
       not_crowded: false,
       distancing: false,
-      zone_id: 2
+      zone_id: this.props.match.params.id
     }
   
     async componentDidMount(){
@@ -51,8 +51,7 @@ import { createPost } from '../services/apiCalls'
   
       onSubmit = async (evt) =>{
           evt.preventDefault()
-          console.log(this.state)
-          createPost(this.state)
+         await createPost(this.state)
           
           // let token = localStorage.getItem('authToken');
           // let res = await axios({
@@ -65,7 +64,7 @@ import { createPost } from '../services/apiCalls'
           // const post = res.data
         
      
-          // this.props.history.push('/zones/:id/post' + post.id )
+          this.props.history.push(`/zones/${this.props.match.params.id}` )
       }
 
 
@@ -179,8 +178,9 @@ import { createPost } from '../services/apiCalls'
                 
               </div>
 
+
               <button className="bg-green-200 border-gray-400 rounded-sm p-1 m-1"
-      
+
               ><h4>Submit</h4></button>
             </form>
           </div>

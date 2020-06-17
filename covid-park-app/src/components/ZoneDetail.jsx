@@ -69,7 +69,7 @@ export default class ZoneDetail extends Component
 
 
              <button className="bg-green-200 border-gray-400 rounded-sm p-1 m-1">
-                    <Link to='/createPost'> 
+                    <Link to={`/zones/${this.props.match.params.id}/createPost`}>
                     Add Post 
                     </Link>
                     
