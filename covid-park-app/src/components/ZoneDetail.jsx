@@ -66,13 +66,8 @@ export default class ZoneDetail extends Component
                     <img src={zone && zone.picture_url} alt={zone && zone.name} />
                 </div>
 
-                <div className="flex flex-wrap">
-                    {zone && zone.posts.map((post, index) =>
-                        (<Post post={post} key={index} />)
-                    )}
-                </div>
 
-  
+
              <button className="bg-green-200 border-gray-400 rounded-sm p-1 m-1">
                     <Link to='/createPost'> 
                     Add Post 
@@ -86,6 +81,13 @@ export default class ZoneDetail extends Component
                      Back to Park</Link>
                      </button>
 
+                <div className="flex flex-wrap">
+                    {zone && zone.posts.map((post, index) =>
+                        (<Post post={post} key={index} />)
+                    )}
+                </div>
+
+  
             </div>
         )
     }
