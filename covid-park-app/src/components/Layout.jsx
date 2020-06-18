@@ -10,12 +10,20 @@ export default function Layout(props)
         <div>
             <Header {...props} />
             <div className="flex">
-                <Nav />
-                <Main />
+                <Nav 
+                {...props}
+                handleSearchInput={props.handleSearchInput}
+                handleSearchSubmit={props.handleSearchSubmit}
+                searchFormData={props.searchFormData} />
+                
+                <Main 
+                {...props}
+                searchFormData={props.searchFormData}/>
+          
             </div>
             <Footer />
         </div>
     )
 }
-
+ 
 

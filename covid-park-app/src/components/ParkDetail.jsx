@@ -6,7 +6,9 @@ import PlaceRating from './PlaceRating'
 export default class ParkDetail extends Component
 {
     state = {
-        park: null
+        park: null,
+        zones: [],
+        filteredZones: []
     }
 
     componentDidMount()
@@ -18,13 +20,31 @@ export default class ParkDetail extends Component
     {
         let response = await getPark(this.props.match.params.id)
         this.setState({
-            park: response.data
+            park: response.data,
+            zones: response.data.zones,
         })
     }
+
+    filterZones = () =>{
+        let filteredZones = this.state.zones
+        if (this.props.searchFormData !=="")
+            {
+                console.log(this.props.searchFormData)
+             filteredZones = filteredZones.filter((filteredZone)=>{
+                 let result = filteredZone.name.includes(this.props.searchFormData)
+                 console.log(result)
+                return result
+            
+             })   
+            }
+            // this.setState({filteredZones: filteredZones})
+    }
+
 
     render()
     {
         const { park } = this.state
+        this.filterZones()
         return (
             <>
                 <div className="flex justify-between">
@@ -41,7 +61,7 @@ export default class ParkDetail extends Component
                 </div>
 
                 <div className="flex flex-wrap justify-between">
-                    {park && park.zones.map((zone, index) =>
+                    {this.state.filteredZones.map((zone, index) =>
                         (<ZoneCard zone={zone} key={index} />)
                     )}
                 </div>
