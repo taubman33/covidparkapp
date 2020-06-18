@@ -13,7 +13,6 @@ export default function Layout(props)
                 <Nav 
                 {...props}
                 handleSearchInput={props.handleSearchInput}
-                handleSearchSubmit={props.handleSearchSubmit}
                 searchFormData={props.searchFormData} />
                 
                 <Main 
