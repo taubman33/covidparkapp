@@ -7,8 +7,7 @@ export default class ParkDetail extends Component
 {
     state = {
         park: null,
-        zones: [],
-        filteredZones: []
+        zones: []
     }
 
     componentDidMount()
@@ -25,26 +24,31 @@ export default class ParkDetail extends Component
         })
     }
 
-    filterZones = () =>{
+    filterZones = () =>
+    {
         let filteredZones = this.state.zones
-        if (this.props.searchFormData !=="")
+        if (this.props.searchFormData !== "")
+        {
+            filteredZones = filteredZones.filter((filteredZone) =>
             {
-                console.log(this.props.searchFormData)
-             filteredZones = filteredZones.filter((filteredZone)=>{
-                 let result = filteredZone.name.includes(this.props.searchFormData)
-                 console.log(result)
+                let result = filteredZone.name.toLowerCase().includes(this.props.searchFormData.toLowerCase())
                 return result
-            
-             })   
-            }
-            // this.setState({filteredZones: filteredZones})
+            })
+        }
+        // this.setState({filteredZones: filteredZones})
+        return (<div className="flex flex-wrap justify-between">
+            {filteredZones.map((zone, index) =>
+                (<ZoneCard zone={zone} key={index} />)
+            )}
+        </div>
+        )
     }
 
 
     render()
     {
         const { park } = this.state
-        this.filterZones()
+        //this.filterZones()
         return (
             <>
                 <div className="flex justify-between">
@@ -60,11 +64,12 @@ export default class ParkDetail extends Component
                     <img className="w-full h-32 overflow-hidden object-cover" src={park && park.picture_url} alt={park && park.name} />
                 </div>
 
-                <div className="flex flex-wrap justify-between">
+                {/* <div className="flex flex-wrap justify-between">
                     {this.state.filteredZones.map((zone, index) =>
                         (<ZoneCard zone={zone} key={index} />)
                     )}
-                </div>
+                </div> */}
+                {this.filterZones()}
             </>
         )
     }
