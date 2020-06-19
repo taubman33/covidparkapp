@@ -20,11 +20,11 @@ export default class Post extends Component
                     </div>
                     <div className="flex items-center">
                         <div>Masks</div>
-                        <Rating rating={post.masks ? 2.5 : 0} sizeClasses="w-3 h-3" hideNumber={true} />
+                        <Rating rating={post.masks ? 3 : 0} sizeClasses="w-3 h-3" hideNumber={true} />
                         <div>Social Distancing</div>
-                        <Rating rating={post.distancing ? 2.5 : 0} sizeClasses="w-3 h-3" hideNumber={true} />
+                        <Rating rating={post.distancing ? 3 : 0} sizeClasses="w-3 h-3" hideNumber={true} />
                         <div>Not Crowded</div>
-                        <Rating rating={post.not_crowded ? 2.5 : 0} sizeClasses="w-3 h-3" hideNumber={true} />
+                        <Rating rating={post.not_crowded ? 3 : 0} sizeClasses="w-3 h-3" hideNumber={true} />
                     </div>
                 </div>
                 <p className="bg-green-100 rounded-sm m-1 p-1"> {post.content}</p>
