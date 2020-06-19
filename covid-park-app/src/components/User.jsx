@@ -30,7 +30,7 @@ export default class User extends Component
             {
                 const { name, picture_url, email, location } = this.state.user
                 return (
-                    <div>
+                    <div className="p-2">
                         <div>Hello {name} </div>
                         <img key="userAvatarPic" className="h-48" src={picture_url} alt="avatar" />
                         <div>Email: {email}</div>
@@ -41,7 +41,7 @@ export default class User extends Component
             }
             else
             {
-                return "Loading..."
+                return <div className="p-2">"Loading..."</div>
             }
         }
     }

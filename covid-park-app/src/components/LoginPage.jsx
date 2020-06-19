@@ -35,8 +35,7 @@ export default class LoginPage extends Component
         else
         {
             return (
-                <div>
-                    <h2> Login </h2>
+                <div className="p-2">
                     <Login handleLogin={this.tryLogin} handleChange={this.handleChange} formData={this.state} />
                 </div>
             )

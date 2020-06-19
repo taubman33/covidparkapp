@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import axios from "axios";
-import {editPost, getZone } from '../services/apiCalls.js'
+import React, { Component } from 'react'
+import { editPost, getZone } from '../services/apiCalls.js'
 
 
-export default class EditPost extends Component {
+export default class EditPost extends Component
+{
 
   state = {
     content: '',
@@ -15,49 +15,35 @@ export default class EditPost extends Component {
   }
 
 
-    componentDidMount(){ 
-
-    this.getZone()
-}
-
-getZone = async () =>
+  componentDidMount()
   {
-    const idParams = this.props.match.params.id
-    const res = await axios.get("https://localhost3000/zones" + idParams)
-        const {content, masks, not_crowded, distancing, user, zone} = res.data.zone;
-       
-        this.setState({
-          content,
-          masks,
-          not_crowded,
-          distancing,
-          user,
-          zone
-        })
+    getZone(1)
   }
 
-  handleFormChange = (e)=> {
-    const { name, value } = e.target;
+  handleFormChange = (e) =>
+  {
+    const { name, value } = e.target
     this.setState({
-        [name]: value
-      })
-    }
+      [name]: value
+    })
+  }
 
-    onSubmit = async (evt) =>{
-        evt.preventDefault()    
-        const idParams = this.props.match.params.id
-        let res = editPost(idParams,this.state)
-        this.props.history.push('/pedals/' + idParams )
-    }
+  onSubmit = async (e) =>
+  {
+    e.preventDefault()
+    const idParams = this.props.match.params.id
+    editPost(idParams, this.state)
+    this.props.history.push('/pedals/' + idParams)
+  }
 
 
-  render() {
-    
+  render()
+  {
     return (
       <div>
         <div>
           <h2>  Edit your post</h2>
-          
+
           {/* <form onSubmit={this.onSubmit}>
           <div>
 
@@ -101,10 +87,10 @@ getZone = async () =>
       
  */}
 
-    
-  </div>
 
-       </div>
+        </div>
+
+      </div>
     )
-  }   
+  }
 }

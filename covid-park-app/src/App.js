@@ -5,11 +5,6 @@ import { withRouter } from 'react-router-dom'
 
 class App extends Component
 {
-  constructor(props)
-  {
-    super(props)
-  }
-
 
   state = {
     searchbar: ""
@@ -29,7 +24,7 @@ class App extends Component
   render()
   {
     return (
-      <div className="bg-gray-100 p-3 m-3">
+      <div className="bg-gray-100 p-3 m-1 min-h-screen">
         <Layout {...this.props}
           handleSearchInput={this.handleSearchInput}
           searchFormData={this.state.searchbar}
