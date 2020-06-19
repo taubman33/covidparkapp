@@ -25,7 +25,7 @@ export default class ParkList extends Component
     mapParks = () =>
     {
         return (
-            <div className="">
+            <div>
                 {this.state.parks.map((park, index) => (
                     <Link key={index} to={`/parks/${park.id}`}><ParkCard park={park} /></Link>
                 ))}

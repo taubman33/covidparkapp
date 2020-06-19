@@ -47,7 +47,7 @@ export default class EditUserPage extends Component
     render()
     {
         return (
-            <div>
+            <div className="p-2">
                 <hr />
                 <h2>Edit your account details!</h2>
                 <UserForm

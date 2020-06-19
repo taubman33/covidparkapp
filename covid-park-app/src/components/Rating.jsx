@@ -14,7 +14,7 @@ export default function Rating(props)
         }
         else if (rating <= 2.5)
         {
-            return "bg-yellow-600"
+            return "bg-yellow-400"
         }
         else if (rating > 2.5)
         {
@@ -30,10 +30,12 @@ export default function Rating(props)
 
     return (
         <div className={`flex items-center ${props.additionalClasses}`} >
-            <div className="flex items-end">
-                {ratingString === -1 ? "Not yet rated" : ratingString}
-                {props.compact ? "" : <div className="text-gray-500">/3</div>}
-            </div>
+            {props.hideNumber ? "" :
+                <div className="flex items-end">
+                    {ratingString === -1 ? "Not yet rated" : ratingString}
+                    {props.compact ? "" : <div className="text-gray-500">/3</div>}
+                </div>
+            }
             <div className={`${ratingColor(props.rating)} ${props.sizeClasses} rounded-full mx-1`}>
             </div>
         </div>

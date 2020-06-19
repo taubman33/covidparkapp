@@ -1,13 +1,11 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 import Searchbar from './Searchbar'
-
-
 
 export default function Nav(props)
 {
     return (
-        <div className="hidden sm:flex flex-col mt-2 pt-2 px-1 bg-gray-100 w-40">
+        <div className="hidden md:flex flex-col mt-2 pt-2 px-1 bg-gray-100 w-40">
             <Searchbar
                 {...props}
                 handleSearchInput={props.handleSearchInput}

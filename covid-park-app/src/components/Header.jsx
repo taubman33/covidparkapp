@@ -4,44 +4,32 @@ import { isLoggedIn, logout } from './services/auth'
 
 export default function Header(props)
 {
-    const homeButtonIfNotAtHomeRoute = () =>
-    {
-        if (props.location.pathname !== "/")
-        {
-            return <Link className="header-button" to="/">Home</Link>
-        }
-        else
-        {
-            return <div className="header-button" to="/">Home</div>
-        }
-    }
-
     const loginLogoutRegisterButtons = () =>
     {
         if (isLoggedIn())
         {
             return (
-                <>
+                <div className="flex">
                     <Link to="#"
                         onClick={() => { logout(() => { props.history.push("/") }) }}
-                        className="header-button">Log out</Link>
-                    <Link to="/user" className="header-button">Profile</Link>
-                </>)
+                        className="header-button text-sm sm:text-lg h-8 sm:h-10">Log out</Link>
+                    <Link to="/user" className="header-button text-sm sm:text-lg h-8 sm:h-10">Profile</Link>
+                </div>)
         }
         else
         {
             return (
-                <>
-                    <Link to="/login" className="header-button">Login</Link>
-                    <Link to="/register" className="header-button">Register</Link>
-                </>)
+                <div className="flex">
+                    <Link to="/login" className="header-button text-sm sm:text-lg h-8 sm:h-10">Login</Link>
+                    <Link to="/register" className="header-button text-sm sm:text-lg h-8 sm:h-10">Register</Link>
+                </div>)
         }
     }
 
     return (
-        <div className="flex bg-gray-100">
-            <Link to="/" className="text-4xl text-green-600 hover:text-green-700 font-black">Park Safe</Link>
-            {homeButtonIfNotAtHomeRoute()}
+        <div className="flex bg-gray-100 items-center">
+            <Link to="/" className="text-xl sm:text-2xl md:text-4xl text-green-600 hover:text-green-700 font-black py-1">Park Safe</Link>
+            <Link className="header-button text-sm sm:text-lg h-8 sm:h-10" to="/">Home</Link>
             {loginLogoutRegisterButtons()}
         </div >
 

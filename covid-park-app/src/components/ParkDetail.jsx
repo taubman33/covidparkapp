@@ -50,7 +50,7 @@ export default class ParkDetail extends Component
         const { park } = this.state
         //this.filterZones()
         return (
-            <>
+            <div className="p-2">
                 <div className="flex justify-between">
                     <h1 className="text-xl font-black text-green-400">{park && park.name}</h1>
                     <a className="text-xs underline hover:text-green-800" target="_blank" rel="noopener noreferrer" href={park && park.link}>{park && park.name}'s nycgovparks.org page</a>
@@ -70,7 +70,7 @@ export default class ParkDetail extends Component
                     )}
                 </div> */}
                 {this.filterZones()}
-            </>
+            </div>
         )
     }
 }

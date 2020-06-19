@@ -38,7 +38,7 @@ export default class RegisterPage extends Component
     render()
     {
         return (
-            <div>
+            <div className="p-2">
                 <hr />
                 <h2>Create a new account!</h2>
                 <UserForm handleSubmit={this.tryRegister}
