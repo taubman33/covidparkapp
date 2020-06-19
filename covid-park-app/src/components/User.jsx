@@ -41,7 +41,7 @@ export default class User extends Component
             }
             else
             {
-                return <div className="p-2">"Loading..."</div>
+                return <div className="p-2">Loading...</div>
             }
         }
     }
