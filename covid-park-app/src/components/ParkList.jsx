@@ -24,13 +24,21 @@ export default class ParkList extends Component
 
     mapParks = () =>
     {
-        return (
-            <div>
-                {this.state.parks.map((park, index) => (
-                    <Link key={index} to={`/parks/${park.id}`}><ParkCard park={park} /></Link>
-                ))}
-            </div>
-        )
+        if (this.state.parks.length > 0)
+        {
+            return (
+                <div>
+                    {this.state.parks.map((park, index) => (
+                        <Link key={index} to={`/parks/${park.id}`}><ParkCard park={park} /></Link>
+                    ))}
+                </div>
+            )
+        }
+        else
+        {
+            return (<div className="text-xl p-2">Loading...</div>)
+        }
+
     }
 
     render()
