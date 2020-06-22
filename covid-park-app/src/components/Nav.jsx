@@ -12,6 +12,8 @@ export default function Nav(props)
                 searchFormData={props.searchFormData}
             />
             <Link className="underline hover:text-green-800" to="/parks/1">Central Park</Link>
+            <Link className="underline hover:text-green-800" to="/parks/2">Flushing Meadows</Link>
         </div>
+
     )
 }
