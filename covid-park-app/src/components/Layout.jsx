@@ -8,7 +8,7 @@ export default function Layout(props)
 {
     return (
         <div>
-            <div className="xl:w-280 xl:mx-auto">
+            <div className="xl:w-320 xl:mx-auto">
                 <Header {...props} />
                 <div className="flex">
                     <Nav
