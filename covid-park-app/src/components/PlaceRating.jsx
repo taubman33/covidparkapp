@@ -7,7 +7,7 @@ export default function PlaceRating(props)
 
     return (
         <div className="flex items-end flex-wrap">
-            <div className="flex items-end mr-2">
+            <div className="flex text-base items-end mr-2">
                 {compact ? "" : <div className="pr-1"> Average</div>}
                 <Rating rating={place.average_rating} sizeClasses={compact ? "w-3 h-3" : "w-4 h-4"} compact={compact} />
             </div>

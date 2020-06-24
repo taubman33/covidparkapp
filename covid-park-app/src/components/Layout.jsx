@@ -8,21 +8,23 @@ export default function Layout(props)
 {
     return (
         <div>
-            <Header {...props} />
-            <div className="flex">
-                <Nav 
-                {...props}
-                handleSearchInput={props.handleSearchInput}
-                searchFormData={props.searchFormData} />
-                
-                <Main 
-                {...props}
-                searchFormData={props.searchFormData}/>
-          
+            <div className="xl:w-280 xl:mx-auto">
+                <Header {...props} />
+                <div className="flex">
+                    <Nav
+                        {...props}
+                        handleSearchInput={props.handleSearchInput}
+                        searchFormData={props.searchFormData} />
+
+                    <Main
+                        {...props}
+                        searchFormData={props.searchFormData} />
+
+                </div>
             </div>
             <Footer />
         </div>
     )
 }
- 
+
 

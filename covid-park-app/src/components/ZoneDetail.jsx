@@ -39,7 +39,8 @@ export default class ZoneDetail extends Component
 
                 {zone && <PlaceRating place={zone} />}
                 <img className="w-full h-108 object-cover object-center" src={zone && zone.picture_url} alt={zone && zone.name} />
-
+                <div className="text-xs text-center text-gray-100 bg-gray-900">{zone && zone.picture_attribution} (
+                    <a className="underline" target="_blank" rel="noopener noreferrer" href={zone && zone.picture_attribution_link}>License</a>)</div>
                 <button className="bg-green-200 border-gray-400 rounded-sm p-1 m-1">
                     <Link to={`/zones/${this.props.match.params.id}/createPost`}>
                         Add Post

@@ -11,11 +11,8 @@ export default function ParkCard(props)
                 <div className="text-xl text-green-400 font-black mr-1">{park.name}</div>
                 <PlaceRating place={park} />
             </div>
-            <div>
-                <img className="h-132 w-full object-cover object-center" src={park.picture_url} alt={park.name} />
-            </div>
-
-
+            <img className="h-132 w-full object-cover object-center" src={park.picture_url} alt={park.name} />
+            <div className="text-xs text-center text-gray-100 bg-gray-900">{park.picture_attribution}</div>
         </div>
     )
 }
