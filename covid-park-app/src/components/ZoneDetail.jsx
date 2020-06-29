@@ -50,8 +50,8 @@ export default class ZoneDetail extends Component
 
 
                 <button className="bg-green-200 border-gray-400 rounded-sm p-1 m-1">
-                    <Link to="/parks/1">
-                        Back to Park</Link>
+                    <Link to="/">
+                        Back to Parks</Link>
                 </button>
 
                 <div className="flex flex-col-reverse">
