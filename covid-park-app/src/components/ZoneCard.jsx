@@ -25,7 +25,7 @@ export default class ZoneCard extends Component
                     <div className="text-sm h-12 sm:h-16"> {zone && zone.location}</div>
                     <div className="text-sm">{zone && <PlaceRating place={zone} compact={true} />}</div>
                     <LazyImage
-                        // placeholder={'../logo192.png'}
+                        placeholder={'https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/20170721_Gotham_Shield_NYC_Aerials-225_medium.jpg/50px-20170721_Gotham_Shield_NYC_Aerials-225_medium.jpg'}
                         uri={smallZonePictureURL}
                         render={(src, style) => <img alt={zone.name} className="w-full h-24 overflow-hidden object-cover object-center" src={src} style={style} />}
                     />

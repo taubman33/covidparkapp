@@ -62,7 +62,7 @@ export default class ParkDetail extends Component
                     {park && <PlaceRating place={park} />}
                 </div>
                 {park && <LazyImage
-                    // placeholder={'../logo192.png'}
+                    placeholder={'https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/20170721_Gotham_Shield_NYC_Aerials-225_medium.jpg/50px-20170721_Gotham_Shield_NYC_Aerials-225_medium.jpg'}
                     uri={park.picture_url}
                     render={(src, style) => <img alt={park.name} className="w-full h-32 overflow-hidden object-cover" src={src} style={style} />}
                 />}

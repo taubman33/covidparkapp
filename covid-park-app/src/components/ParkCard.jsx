@@ -13,7 +13,7 @@ export default function ParkCard(props)
                 <PlaceRating place={park} />
             </div>
             <LazyImage
-                // placeholder={'./logo192.png'}
+                placeholder={'https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/20170721_Gotham_Shield_NYC_Aerials-225_medium.jpg/50px-20170721_Gotham_Shield_NYC_Aerials-225_medium.jpg'}
                 uri={park.picture_url}
                 render={(src, style) => <img alt={park.name} className="h-132 w-full object-cover object-center" src={src} style={style} />}
             />
