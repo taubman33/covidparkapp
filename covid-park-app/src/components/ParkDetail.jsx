@@ -49,7 +49,19 @@ export default class ParkDetail extends Component
     render()
     {
         const { park } = this.state
-        //this.filterZones()
+
+        let smallParkPictureURL
+        if (park)
+        {
+            const a = park.picture_url.split('commons/')
+            const b = park.picture_url.split('/')
+            smallParkPictureURL = a.join('commons/thumb/') + '/50px-' + b[b.length - 1]
+            if (a.length <= 1)
+            {
+                smallParkPictureURL = park.picture_url
+            }
+        }
+
         return (
             <div className="p-2">
                 <div className="flex justify-between">
@@ -62,7 +74,7 @@ export default class ParkDetail extends Component
                     {park && <PlaceRating place={park} />}
                 </div>
                 {park && <LazyImage
-                    placeholder={'https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/20170721_Gotham_Shield_NYC_Aerials-225_medium.jpg/50px-20170721_Gotham_Shield_NYC_Aerials-225_medium.jpg'}
+                    placeholder={smallParkPictureURL}
                     uri={park.picture_url}
                     render={(src, style) => <img alt={park.name} className="w-full h-32 overflow-hidden object-cover" src={src} style={style} />}
                 />}
