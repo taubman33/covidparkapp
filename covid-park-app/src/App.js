@@ -15,7 +15,15 @@ class App extends Component
   //search bar input
   handleSearchInput = (e) =>
   {
-    let value = e.target.value
+    let value
+    if (e.target.name === "ClearButton")
+    {
+      value = ""
+    }
+    else
+    {
+      value = e.target.value
+    }
     this.setState(
       { searchbar: value }
     )

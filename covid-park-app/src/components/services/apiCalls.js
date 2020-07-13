@@ -32,6 +32,11 @@ export const getZone = async (zoneId) =>
     return response
 }
 
+export const getAllZones = async () =>
+{
+    let response = await tryCatchAPICall("GET", `/zones/`)
+    return response
+}
 
 export const getUser = async (userId) =>
 {

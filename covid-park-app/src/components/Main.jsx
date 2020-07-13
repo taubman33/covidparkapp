@@ -10,6 +10,7 @@ import ZoneDetail from './ZoneDetail'
 import EditUserPage from './EditUserPage'
 import CreatePost from './Forms/CreatePost'
 import EditPost from './Forms/EditPost'
+import Search from './Search'
 
 
 export default class Main extends Component
@@ -36,7 +37,7 @@ export default class Main extends Component
 
                 <Route exact path='/zones/:id/createPost' render={(props) => <CreatePost {...props} />} />
                 <Route exact path='/editPost/:id' render={(props) => <EditPost {...props} />} />
-
+                <Route exact path='/search' render={(props) => <Search {...props} searchFormData={this.props.searchFormData} />} />
             </div>
         )
     }

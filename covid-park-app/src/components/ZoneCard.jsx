@@ -1,12 +1,22 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import PlaceRating from './PlaceRating'
+import LazyImage from 'react-lazy-blur-image'
 
 export default class ZoneCard extends Component
 {
     render()
     {
         const { zone } = this.props
+
+        const a = zone.picture_url.split('commons/')
+        const b = zone.picture_url.split('/')
+        let smallZonePictureURL = a.join('commons/thumb/') + '/200px-' + b[b.length - 1]
+        if (a.length <= 1)
+        {
+            smallZonePictureURL = zone.picture_url
+        }
+
         return (
             <Link className="w-full sm:w-64" to={`/zones/${zone.id}`}>
                 <div
@@ -14,7 +24,11 @@ export default class ZoneCard extends Component
                     <div className="text sm:h-12 font-semibold"> {zone && zone.name}</div>
                     <div className="text-sm h-12 sm:h-16"> {zone && zone.location}</div>
                     <div className="text-sm">{zone && <PlaceRating place={zone} compact={true} />}</div>
-                    <img className="w-full h-24 overflow-hidden object-cover object-center" src={zone && zone.picture_url} alt={zone && zone.name} />
+                    <LazyImage
+                        placeholder={'https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/20170721_Gotham_Shield_NYC_Aerials-225_medium.jpg/50px-20170721_Gotham_Shield_NYC_Aerials-225_medium.jpg'}
+                        uri={smallZonePictureURL}
+                        render={(src, style) => <img alt={zone.name} className="w-full h-24 overflow-hidden object-cover object-center" src={src} style={style} />}
+                    />
                 </div>
             </Link>
         )
