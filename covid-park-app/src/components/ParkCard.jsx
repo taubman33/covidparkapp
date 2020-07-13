@@ -6,6 +6,16 @@ export default function ParkCard(props)
 {
     const { park } = props
 
+    let smallParkPictureURL
+    const a = park.picture_url.split('commons/')
+    const b = park.picture_url.split('/')
+    smallParkPictureURL = a.join('commons/thumb/') + '/50px-' + b[b.length - 1]
+    if (a.length <= 1)
+    {
+        smallParkPictureURL = park.picture_url
+    }
+
+
     return (
         <div className="p-2 w-full bg-gray-200 rounded border border-gray-200 hover:bg-green-100 hover:border-green-300">
             <div className="flex flex-col">
@@ -13,7 +23,7 @@ export default function ParkCard(props)
                 <PlaceRating place={park} />
             </div>
             <LazyImage
-                placeholder={'https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/20170721_Gotham_Shield_NYC_Aerials-225_medium.jpg/50px-20170721_Gotham_Shield_NYC_Aerials-225_medium.jpg'}
+                placeholder={smallParkPictureURL}
                 uri={park.picture_url}
                 render={(src, style) => <img alt={park.name} className="h-132 w-full object-cover object-center" src={src} style={style} />}
             />

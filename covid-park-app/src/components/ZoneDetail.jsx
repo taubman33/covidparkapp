@@ -29,6 +29,19 @@ export default class ZoneDetail extends Component
     render()
     {
         const { zone } = this.state
+        let smallZonePictureURL
+        if (zone)
+        {
+            const a = zone.picture_url.split('commons/')
+            const b = zone.picture_url.split('/')
+            smallZonePictureURL = a.join('commons/thumb/') + '/50px-' + b[b.length - 1]
+            if (a.length <= 1)
+            {
+                smallZonePictureURL = zone.picture_url
+            }
+        }
+
+
 
         return (
             <div className="p-2">
@@ -41,7 +54,7 @@ export default class ZoneDetail extends Component
 
                 {zone && <PlaceRating place={zone} />}
                 {zone && <LazyImage
-                    placeholder={'https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/20170721_Gotham_Shield_NYC_Aerials-225_medium.jpg/50px-20170721_Gotham_Shield_NYC_Aerials-225_medium.jpg'}
+                    placeholder={smallZonePictureURL}
                     uri={zone.picture_url}
                     render={(src, style) => <img alt={zone && zone.name} className="w-full h-108 object-cover object-center" src={src} style={style} />}
                 />}
