@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import PlaceRating from './PlaceRating'
+import LazyImage from 'react-lazy-blur-image'
 
 export default class ZoneCard extends Component
 {
@@ -14,7 +15,13 @@ export default class ZoneCard extends Component
                     <div className="text sm:h-12 font-semibold"> {zone && zone.name}</div>
                     <div className="text-sm h-12 sm:h-16"> {zone && zone.location}</div>
                     <div className="text-sm">{zone && <PlaceRating place={zone} compact={true} />}</div>
-                    <img className="w-full h-24 overflow-hidden object-cover object-center" src={zone && zone.picture_url} alt={zone && zone.name} />
+                    {/* <img className="w-full h-24 overflow-hidden object-cover object-center" src={zone && zone.picture_url} alt={zone && zone.name} /> */}
+                    <LazyImage
+                        placeholder={'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/New_York_City_Blockhouse.JPG/4px-New_York_City_Blockhouse.JPG'}
+                        uri={zone.picture_url}
+                        alt={zone.name}
+                        render={(src, style) => <img className="w-full h-24 overflow-hidden object-cover object-center" src={src} style={style} />}
+                    />
                 </div>
             </Link>
         )

@@ -15,16 +15,12 @@ export default function Layout(props)
                         {...props}
                         handleSearchInput={props.handleSearchInput}
                         searchFormData={props.searchFormData} />
-
                     <Main
                         {...props}
                         searchFormData={props.searchFormData} />
-
                 </div>
             </div>
             <Footer />
         </div>
     )
 }
-
-

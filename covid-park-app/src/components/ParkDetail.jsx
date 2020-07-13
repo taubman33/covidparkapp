@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { getPark } from './services/apiCalls'
 import ZoneCard from './ZoneCard'
 import PlaceRating from './PlaceRating'
+import LazyImage from 'react-lazy-blur-image'
 
 export default class ParkDetail extends Component
 {
@@ -60,7 +61,14 @@ export default class ParkDetail extends Component
                 <div className="text-sm">
                     {park && <PlaceRating place={park} />}
                 </div>
-                <img className="w-full h-32 overflow-hidden object-cover" src={park && park.picture_url} alt={park && park.name} />
+                {/* <img className="w-full h-32 overflow-hidden object-cover" src={park && park.picture_url} alt={park && park.name} /> */}
+                <LazyImage
+                    placeholder={'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/New_York_City_Blockhouse.JPG/4px-New_York_City_Blockhouse.JPG'}
+                    uri={park && park.picture_url}
+                    alt={park && park.name}
+                    render={(src, style) => <img className="w-full h-32 overflow-hidden object-cover" src={src} style={style} />}
+                />
+
                 <div className="text-xs text-center text-gray-100 bg-gray-900">{park && park.picture_attribution} (
                     <a className="underline" target="_blank" rel="noopener noreferrer" href={park && park.picture_attribution_link}>License</a>)</div>
 
