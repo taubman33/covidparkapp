@@ -63,7 +63,7 @@ export default class ParkDetail extends Component
                 </div>
                 {/* <img className="w-full h-32 overflow-hidden object-cover" src={park && park.picture_url} alt={park && park.name} /> */}
                 <LazyImage
-                    placeholder={'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/New_York_City_Blockhouse.JPG/4px-New_York_City_Blockhouse.JPG'}
+                    placeholder={'../logo192.png'}
                     uri={park && park.picture_url}
                     alt={park && park.name}
                     render={(src, style) => <img className="w-full h-32 overflow-hidden object-cover" src={src} style={style} />}

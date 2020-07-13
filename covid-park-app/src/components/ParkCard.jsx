@@ -14,7 +14,7 @@ export default function ParkCard(props)
             </div>
             {/* <img className="h-132 w-full object-cover object-center" src={park.picture_url} alt={park.name} /> */}
             <LazyImage
-                placeholder={'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/New_York_City_Blockhouse.JPG/4px-New_York_City_Blockhouse.JPG'}
+                placeholder={'./logo192.png'}
                 uri={park.picture_url}
                 alt={park.name}
                 render={(src, style) => <img className="h-132 w-full object-cover object-center" src={src} style={style} />}

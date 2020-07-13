@@ -41,7 +41,7 @@ export default class ZoneDetail extends Component
                 {zone && <PlaceRating place={zone} />}
                 {/* <img className="w-full h-108 object-cover object-center" src={zone && zone.picture_url} alt={zone && zone.name} /> */}
                 <LazyImage
-                    placeholder={'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/New_York_City_Blockhouse.JPG/4px-New_York_City_Blockhouse.JPG'}
+                    placeholder={'../logo192.png'}
                     uri={zone && zone.picture_url}
                     alt={zone && zone.name}
                     render={(src, style) => <img className="w-full h-108 object-cover object-center" src={src} style={style} />}
