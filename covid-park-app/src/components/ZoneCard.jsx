@@ -24,12 +24,10 @@ export default class ZoneCard extends Component
                     <div className="text sm:h-12 font-semibold"> {zone && zone.name}</div>
                     <div className="text-sm h-12 sm:h-16"> {zone && zone.location}</div>
                     <div className="text-sm">{zone && <PlaceRating place={zone} compact={true} />}</div>
-                    {/* <img className="w-full h-24 overflow-hidden object-cover object-center" src={zone && zone.picture_url} alt={zone && zone.name} /> */}
                     <LazyImage
-                        placeholder={'../logo192.png'}
+                        // placeholder={'../logo192.png'}
                         uri={smallZonePictureURL}
-                        alt={zone.name}
-                        render={(src, style) => <img className="w-full h-24 overflow-hidden object-cover object-center" src={src} style={style} />}
+                        render={(src, style) => <img alt={zone.name} className="w-full h-24 overflow-hidden object-cover object-center" src={src} style={style} />}
                     />
                 </div>
             </Link>

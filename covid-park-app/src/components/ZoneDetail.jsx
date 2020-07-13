@@ -39,13 +39,11 @@ export default class ZoneDetail extends Component
 
 
                 {zone && <PlaceRating place={zone} />}
-                {/* <img className="w-full h-108 object-cover object-center" src={zone && zone.picture_url} alt={zone && zone.name} /> */}
-                <LazyImage
-                    placeholder={'../logo192.png'}
-                    uri={zone && zone.picture_url}
-                    alt={zone && zone.name}
-                    render={(src, style) => <img className="w-full h-108 object-cover object-center" src={src} style={style} />}
-                />
+                {zone && <LazyImage
+                    // placeholder={'../logo192.png'}
+                    uri={zone.picture_url}
+                    render={(src, style) => <img alt={zone && zone.name} className="w-full h-108 object-cover object-center" src={src} style={style} />}
+                />}
 
                 <div className="text-xs text-center text-gray-100 bg-gray-900">{zone && zone.picture_attribution} (
                     <a className="underline" target="_blank" rel="noopener noreferrer" href={zone && zone.picture_attribution_link}>License</a>)</div>
